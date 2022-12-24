@@ -3,6 +3,19 @@
 @*partial tag helper*@
 <partial name="_ListPartialView"></partial>
 
+@{
+    var myViewData = new ViewDataDictionary(ViewData);
+    myViewData["ListTitle"] = "Countries";
+    myViewData["ListItems"] = new List<string>{
+        "Country1",
+        "Country2",
+        "Country3",
+        "Country4",
+    };
+}
 <div class="box">
-    <partial name="_ListPartialView"></partial>
+    <partial name="_ListPartialView" view-data="myViewData"></partial>
 </div>
+
+@*update in partial view does not effect viewBag data in view*@
+<h3>ViewBag.ListTitle: @ViewBag.ListTitle</h3>
