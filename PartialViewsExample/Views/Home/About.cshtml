@@ -1,1 +1,16 @@
 ﻿<h1>About</h1>
+
+@*tag helper approach*@
+@*add content to view*@
+<partial name="_ListPartialView" />
+
+@*html helper approach*@
+@*add content to view*@
+@await Html.PartialAsync("_ListPartialView")
+
+@*inside the call block approach*@
+@*send to browser*@
+@*good performance*@
+@{
+    await Html.RenderPartialAsync("_ListPartialView");
+}
