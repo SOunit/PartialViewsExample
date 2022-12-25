@@ -1,7 +1,18 @@
 ﻿<h1>Home</h1>
 
+@{
+    ListModel listModel = new ListModel();
+    listModel.ListTitle = "Countries";
+    listModel.ListItems = new List<string>{
+        "Country1",
+        "Country2",
+        "Country3",
+        "Country4",
+    };
+}
+
 @*partial tag helper*@
-<partial name="_ListPartialView"></partial>
+<partial name="_ListPartialView" model="listModel"></partial>
 
 @{
     var myViewData = new ViewDataDictionary(ViewData);
